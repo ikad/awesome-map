@@ -1,5 +1,7 @@
 # awsome-map
 
+## Rails5アプリケーションの準備
+
 Gemfileを作る。
 
 ```
@@ -27,6 +29,8 @@ Overwrite /vagrant/awsome-map/README.md? (enter "h" for help) [Ynaqdh] n
 Overwrite /vagrant/awsome-map/Gemfile? (enter "h" for help) [Ynaqdh] Y
 ```
 
+## とりあえずのコントローラ
+
 とりあえずのコントローラを作ってルートを設定する。
 
 ```
@@ -41,4 +45,13 @@ Rails.application.routes.draw do
 
 end
 ```
+
+## チャンネルを作る
+
+talkチャンネルを作る
+
+```
+rails g channel talk
+```
+
 
