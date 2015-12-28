@@ -9,7 +9,7 @@ class TalkChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    current_user.messages.create!(content: data['message'])
+    current_user.messages.create!(content: ApplicationController.helpers.sanitize(data['message']))
   end
 
   def plot(data)
