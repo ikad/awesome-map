@@ -9,6 +9,17 @@ class TalkChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create!(content: data['message'])
+    current_user.messages.create!(content: data['message'])
+  end
+
+  def plot(data)
+    current_user.markers.create!(lat: data['lat'], lng: data['lng'])
+  end
+
+  def delete(data)
+    current_user.markers.destroy(data['id'])
+  rescue
+    marker = Marker.find(data['id'])
+    BroadcastMarkerJob.perform_later(marker)
   end
 end
